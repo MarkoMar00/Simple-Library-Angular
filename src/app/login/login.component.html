@@ -1,0 +1,25 @@
+<header class="bg-primary text-white">
+  <h1>Knjižnica</h1>
+  <br>
+</header>
+
+<body>
+<h2>Dobro došli!</h2>
+<h3>Kako bi ste nastavili molimo ulogirajte se ili se registrirajte!</h3>
+<fieldset class="form-group">
+  <label>Username:</label>
+  <input class="form-control" type="text" [(ngModel)]="user.username">
+</fieldset>
+<fieldset class="form-group">
+  <label>Password:</label>
+  <input class="form-control" type="password" [(ngModel)]="user.password">
+</fieldset>
+<button class="btn btn-primary" (click)="login()">Login!</button>
+<button class="btn btn-secondary btn" [routerLink]="['register']">Registracija!</button>
+<div id="err"></div>
+</body>
+
+<footer class="bg-primary text-white fixed-bottom">
+  <h3>Zagreb 2023</h3>
+  <p>Marko Marijan</p>
+</footer>

@@ -1,0 +1,61 @@
+<header class="bg-primary text-white">
+  <h1>Knjižnica</h1>
+  <br>
+</header>
+
+<body>
+<h2>Dobro došli!</h2>
+<h3>Molimo registrirajte se!</h3>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <fieldset class="form-group">
+    <label>Username</label>
+    <input class="form-control" type="text" [(ngModel)]="newUser.username" name="username" required minlength="4" #uname = "ngModel">
+    <div *ngIf="uname.touched">
+      <div *ngIf="uname.errors?.['minlength']">
+        <p style="color: red">Ime mora imati minimalno četiri znaka!</p>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Password</label>
+    <input class="form-control" type="password" name="password" [(ngModel)]="newUser.password" required minlength="1" #pass = "ngModel">
+    <div *ngIf="pass.touched">
+      <div *ngIf="pass.errors?.['required']">
+        <p style="color: red">Morate unijeti lozinku!</p>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Repeat password</label>
+    <input class="form-control" type="password" name="confirmPassword" [(ngModel)]="confirmPass" required minlength="1" #compass = "ngModel">
+    <div *ngIf="compass.touched">
+      <div *ngIf="compass.errors?.['required']">
+        <p style="color: red">Morate potvrditi lozinku!</p>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Name</label>
+    <input class="form-control" type="text" name="name" [(ngModel)]="newUser.name" required minlength="1" #name = "ngModel">
+    <div *ngIf="name.touched">
+      <div *ngIf="name.errors?.['required']">
+        <p style="color: red">Morate unijeti ime!</p>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Email</label>
+    <input class="form-control" type="email" name="email" [(ngModel)]="newUser.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required minlength="1" #email = "ngModel">
+    <div *ngIf="email.touched">
+      <p *ngIf="email.errors?.['required']" style="color: red">Email je obavezan!</p>
+      <p *ngIf="email.errors?.['pattern']" style="color: red">Email nije u ispravnom formatu!!!</p>
+    </div>
+  </fieldset>
+  <button class="btn btn-primary">Registracija!</button>
+</form>
+</body>
+
+<footer class="bg-primary text-white fixed-bottom">
+  <h3>Zagreb 2023</h3>
+  <p>Marko Marijan</p>
+</footer>

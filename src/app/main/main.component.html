@@ -1,0 +1,48 @@
+<header class="bg-primary text-white">
+  <h1>Knjižnica</h1>
+  <br>
+
+</header>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-white" id="navbarNav">
+    <ul class="navbar-nav text-white">
+      <li class="nav-item">
+        <h4><a class="nav-link text-white" [routerLink]="['../../profile', trenutniKorisnik]">Profile</a></h4>
+      </li>
+      <li class="nav-item">
+        <h4><a class="nav-link text-white" [routerLink]="['../..']">Logout</a></h4>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h2>Knjige:</h2><br>
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>Naziv</th>
+    <th>Pisac</th>
+    <th>Žanr</th>
+    <th>Posudi</th>
+  </tr>
+
+  <tr *ngFor="let knjiga of knjige; let i=index">
+    <td>{{knjiga.ime}}</td>
+    <td>{{knjiga.pisac}}</td>
+    <ng-container *ngFor="let zanr of zanrovi">
+      <td *ngIf="zanr.sif == knjiga.zanr">{{zanr.naziv}}</td>
+    </ng-container>
+    <td><button class=" btn btn-info" (click)="posudi(i)">Posudi</button></td>
+  </tr>
+</table>
+</body>
+
+<footer class="bg-primary text-white fixed-bottom">
+  <h3>Zagreb 2023</h3>
+  <p>Marko Marijan</p>
+</footer>
